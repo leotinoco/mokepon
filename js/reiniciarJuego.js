@@ -1,0 +1,3 @@
+function reiniciarJuego() {
+	location.reload();
+}

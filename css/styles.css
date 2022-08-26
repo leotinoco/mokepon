@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2&family=Monoton&display=swap');
+
+body {
+	font-family: 'Baloo 2', cursive;
+	background: #eaffd0;
+}
+
+#seleccionar-mascota {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.titulo {
+	font-size: 32px;
+	color: #f38181;
+	font-family: 'Monoton', cursive;
+}
+
+.subtitulo {
+	font-size: 20px;
+	color: #95e1d3;
+}
+
+.tarjetas,
+.tarjetas-ataques {
+	display: flex;
+	gap: 10px;
+	margin-bottom: 40px;
+}
+
+.tarjeta-de-mokepon {
+	background: #fce38a;
+	width: 180px;
+	height: 100px;
+	padding: 10px;
+	box-sizing: border-box;
+	border-radius: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.tarjeta-de-mokepon:hover {
+	-webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+	box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+	cursor: pointer;
+}
+
+.tarjetas input:checked + label {
+	background: #fff;
+}
+
+.tarjeta-de-mokepon img {
+	width: 80px;
+}
+
+input {
+	display: none;
+}
+
+.botones-interaccion,
+.botones-interaccion:after {
+	width: 150px;
+	height: 76px;
+	line-height: 78px;
+	font-size: 20px;
+	background: linear-gradient(45deg, transparent 5%, #f38181 5%);
+	border: 0;
+	color: #fff;
+	letter-spacing: 3px;
+	box-shadow: 6px 0px 0px #95e1d3;
+	outline: transparent;
+	position: relative;
+	user-select: none;
+	-webkit-user-select: none;
+	touch-action: manipulation;
+}
+
+.botones-interaccion:hover {
+	cursor: pointer;
+}
+
+.botones-interaccion:after {
+	--slice-0: inset(50% 50% 50% 50%);
+	--slice-1: inset(80% -6px 0 0);
+	--slice-2: inset(50% -6px 30% 0);
+	--slice-3: inset(10% -6px 85% 0);
+	--slice-4: inset(40% -6px 43% 0);
+	--slice-5: inset(80% -6px 5% 0);
+
+	content: 'MOKEPON';
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: linear-gradient(
+		45deg,
+		transparent 3%,
+		#95e1d3 3%,
+		#95e1d3 5%,
+		#f38181 5%
+	);
+	text-shadow: -3px -3px 0px #fce38a, 3px 3px 0px #95e1d3;
+	clip-path: var(--slice-0);
+}
+
+.botones-interaccion:hover:after {
+	animation: 1s glitch;
+	animation-timing-function: steps(2, end);
+}
+
+@keyframes glitch {
+	0% {
+		clip-path: var(--slice-1);
+		transform: translate(-20px, -10px);
+	}
+	10% {
+		clip-path: var(--slice-3);
+		transform: translate(10px, 10px);
+	}
+	20% {
+		clip-path: var(--slice-1);
+		transform: translate(-10px, 10px);
+	}
+	30% {
+		clip-path: var(--slice-3);
+		transform: translate(0px, 5px);
+	}
+	40% {
+		clip-path: var(--slice-2);
+		transform: translate(-5px, 0px);
+	}
+	50% {
+		clip-path: var(--slice-3);
+		transform: translate(5px, 0px);
+	}
+	60% {
+		clip-path: var(--slice-4);
+		transform: translate(5px, 10px);
+	}
+	70% {
+		clip-path: var(--slice-2);
+		transform: translate(-10px, 10px);
+	}
+	80% {
+		clip-path: var(--slice-5);
+		transform: translate(20px, -10px);
+	}
+	90% {
+		clip-path: var(--slice-1);
+		transform: translate(-10px, 0px);
+	}
+	100% {
+		clip-path: var(--slice-1);
+		transform: translate(0);
+	}
+}
+
+#seleccionar-ataque {
+	flex-direction: column;
+	align-items: center;
+}
+
+.boton-de-ataque {
+	padding: 0.6em 2em;
+	border: none;
+	outline: none;
+	color: rgb(255, 255, 255);
+	background: #111;
+	position: relative;
+	z-index: 0;
+	border-radius: 10px;
+	user-select: none;
+	-webkit-user-select: none;
+	touch-action: manipulation;
+	margin: 10px;
+}
+
+.boton-de-ataque:before {
+	content: '';
+	background: linear-gradient(
+		45deg,
+		#ff0000,
+		#ff7300,
+		#fffb00,
+		#48ff00,
+		#00ffd5,
+		#002bff,
+		#7a00ff,
+		#ff00c8,
+		#ff0000
+	);
+	position: absolute;
+	top: -2px;
+	left: -2px;
+	background-size: 400%;
+	z-index: -1;
+	filter: blur(5px);
+	-webkit-filter: blur(5px);
+	width: calc(100% + 4px);
+	height: calc(100% + 4px);
+	animation: glowing-boton-de-ataque 20s linear infinite;
+	transition: opacity 0.3s ease-in-out;
+	border-radius: 10px;
+}
+
+@keyframes glowing-boton-de-ataque {
+	0% {
+		background-position: 0 0;
+	}
+	50% {
+		background-position: 400% 0;
+	}
+	100% {
+		background-position: 0 0;
+	}
+}
+
+.boton-de-ataque:after {
+	z-index: -1;
+	content: '';
+	position: absolute;
+	background: #111;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	border-radius: 10px;
+}
+
+.boton-de-ataque:hover {
+	cursor: pointer;
+}
+
+.boton-de-ataque:active {
+	color: #f38181;
+}
+
+#mensajes {
+	width: 280px;
+	background: #fce38a;
+	padding: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	border-radius: 20px;
+	-webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+	box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.ataques {
+	display: grid;
+	grid-template-columns: 100px 100px;
+	text-align: center;
+}
+
+.ataques-jugador,
+.ataques-enemigo {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+@media (min-width: 768px) {
+	.botones-interaccion,
+	.botones-interaccion:after {
+		width: 200px;
+		height: 86px;
+		line-height: 88px;
+	}
+}
+
+@media (max-width: 360px) {
+	.tarjetas,
+	.tarjetas-ataques {
+		flex-direction: column;
+	}
+}
