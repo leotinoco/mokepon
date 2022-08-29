@@ -233,6 +233,12 @@ input {
 	border-radius: 10px;
 }
 
+button:disabled,
+button[disabled] ~ button:disabled:after,
+button[disabled]:after {
+	background: #ffffff;
+}
+
 .boton-de-ataque:hover {
 	cursor: pointer;
 }
